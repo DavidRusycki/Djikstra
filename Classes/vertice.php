@@ -79,6 +79,18 @@ class vertice {
     }
 
     /**
+     * Verifica a necessidade de atualizar o custo do vértice.
+     * @param Integer $iCusto
+     * @param String $sPrecedente
+     */
+    public function verificaAtualizacaoCusto($iCusto, $sPrecedente) {
+        if ($iCusto < $this->getCusto()) {
+            $this->setCusto($iCusto);
+            $this->setPrecedente($sPrecedente);
+        }
+    }
+
+    /**
      * Retorna o precedente do vértice.
      */ 
     public function getPrecedente() {
