@@ -23,7 +23,13 @@ class grafo {
      * @return Array
      */
     public function getGrafo() {
-        return $this->grafo;
+        // return $this->grafo;
+        // Colocado assimm até pensar uma forma melhor de obter/setar isso
+        return [
+            'a' => ['b' => 10, 'c' => 5],
+            'b' => ['a' => 10, 'c' => 16],
+            'c' => ['a' => 5, 'b' => 16],
+        ];
     }
 
 }
