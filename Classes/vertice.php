@@ -2,6 +2,7 @@
 /**
  * Classe que representa os vértices do grafo.
  * @author David Rusycki
+ * @since 02/10/2021
  */
 class vertice {
     
@@ -10,9 +11,33 @@ class vertice {
     private $visitado;
     private $custo;
     private $precedente;
+    
+    /**
+     * Adiciona um relacionamento para o vértice.
+     * @param String $sIndiceRelacionamento
+     * @param Integer $iValorAresta
+     */
+    public function addRelacionamento($sIndiceRelacionamento, $iValorAresta) {
+        $this->relacionamentos[$sIndiceRelacionamento] = $iValorAresta;
+    }
+
+    /**
+     * Verifica a necessidade de atualizar o custo do vértice.
+     * Caso o custo da estimativa atual for menor que o menor custo conhecido, atualiza o custo.
+     * Caso o custo da estimativa atual não for menor que o menor custo conhecido não atualiza nada.
+     * @param Integer $iCusto
+     * @param String $sPrecedente
+     */
+    public function verificaAtualizacaoCusto($iCusto, $sPrecedente) {
+        if ($iCusto < $this->getCusto()) {
+            $this->setCusto($iCusto);
+            $this->setPrecedente($sPrecedente);
+        }
+    }
 
     /**
      * Retorna o nome do vértice.
+     * @return String
      */ 
     public function getNome() {
         return $this->nome;
@@ -20,6 +45,7 @@ class vertice {
 
     /**
      * Seta o nome do vértice.
+     * @param String $sNome 
      */ 
     public function setNome($sNome) {
         $this->nome = $sNome;
@@ -27,6 +53,7 @@ class vertice {
 
     /**
      * Retorna os relacionamentos do Vértice.
+     * @return Array
      */ 
     public function getRelacionamentos() {
         return $this->relacionamentos;
@@ -41,16 +68,8 @@ class vertice {
     }
     
     /**
-     * Adiciona um relacionamento para o vértice.
-     * @param String $sIndiceRelacionamento
-     * @param Integer $iValorAresta
-     */
-    public function addRelacionamento($sIndiceRelacionamento, $iValorAresta) {
-        $this->relacionamentos[$sIndiceRelacionamento] = $iValorAresta;
-    }
-
-    /**
      * Retorna se o vértice já foi visitado.
+     * @return Boolean
      */ 
     public function getVisitado() {
         return $this->visitado;
@@ -58,6 +77,7 @@ class vertice {
 
     /**
      * Seta se o vértice já foi visitado.
+     * @param Booelan %bVisitado
      */ 
     public function setVisitado($bVisitado) {
         $this->visitado = $bVisitado;
@@ -65,6 +85,7 @@ class vertice {
 
     /**
      * Retorna o custo para chegar no vértice.
+     * @return Integer
      */ 
     public function getCusto() {
         return $this->custo;
@@ -79,19 +100,8 @@ class vertice {
     }
 
     /**
-     * Verifica a necessidade de atualizar o custo do vértice.
-     * @param Integer $iCusto
-     * @param String $sPrecedente
-     */
-    public function verificaAtualizacaoCusto($iCusto, $sPrecedente) {
-        if ($iCusto < $this->getCusto()) {
-            $this->setCusto($iCusto);
-            $this->setPrecedente($sPrecedente);
-        }
-    }
-
-    /**
      * Retorna o precedente do vértice.
+     * @return String 
      */ 
     public function getPrecedente() {
         return $this->precedente;
@@ -99,9 +109,10 @@ class vertice {
 
     /**
      * Seta o precedente do vértice. 
+     * @param String $sPrecedente
      */ 
-    public function setPrecedente($precedente) {
-        $this->precedente = $precedente;
+    public function setPrecedente($sPrecedente) {
+        $this->precedente = $sPrecedente;
     }
 
 }
