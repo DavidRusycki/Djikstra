@@ -17,7 +17,7 @@ class grafo {
     public function __construct() {
         $this->setGrafo(
             [
-                'RR' => ['PA' => 150, 'TO' => 180, 'RJ' => 335, 'SP' => 380],
+                'RR' => ['PA' => 150, 'TO' => 180, 'RJ' => 355, 'SP' => 380],
                 'AP' => ['AC' => 330, 'RN' => 195, 'DF' => 110, 'SP' => 310],
                 'AM' => ['TO' => 453, 'BA' => 449, 'MS' => 88,  'SP' => 210],
                 'PA' => ['RR' => 150, 'RO' => 385, 'RJ' => 212, 'SP' => 210],
