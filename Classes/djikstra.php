@@ -43,41 +43,6 @@ class djikstra {
     }
 
     /**
-     * Verificar se é melhor fazer uma classe separada
-     * @todo Verificar esse role
-     */
-    public function getRotas($aVertices) {
-        $aCaminhos = [];
-        foreach($aVertices as $oVertice) {
-            $aCaminhos[] = $this->getCaminhoCompleto($oVertice, $aVertices);
-        }
-        return $aCaminhos;
-    }
-
-    /**
-     * Verificar se é melhor fazer uma classe separada
-     * @todo Verificar esse role
-     */
-    private function getCaminhoCompleto($oVertice, $aVertices) {
-        return $this->getPrecedenteRecursive($oVertice, $aVertices);
-    }
-
-    /**
-     * Verificar se é melhor fazer uma classe separada
-     * @todo Verificar esse role
-     */
-    private function getPrecedenteRecursive($oVertice, $aVertices) {
-        $sCaminho = '';
-        if ($oVertice->getPrecedente() != null) {
-            $sCaminho .= $oVertice->getNome() . ' - ' . $this->getPrecedenteRecursive($aVertices[$oVertice->getPrecedente()], $aVertices); 
-        }
-        else {
-            $sCaminho = $oVertice->getNome();
-        }
-        return $sCaminho;
-    }
-
-    /**
      * Retorna um array com todos os vertices do grafo considerando todos como não visitados.
      * @param Array $aGrafo
      * @return Array $aResult
