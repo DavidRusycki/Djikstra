@@ -10,3 +10,4 @@ $oDjikstra = new \djikstra();
 $aRetorno = $oDjikstra->calcularRotas($oGrafo->getGrafo(), 'RR');
 //Exibe o resultado na tela.
 var_dump($aRetorno);
+var_dump($oDjikstra->getRotas($aRetorno));
