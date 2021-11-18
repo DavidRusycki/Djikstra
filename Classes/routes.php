@@ -14,7 +14,7 @@ class routes {
     public function getRotas($aVertices) {
         $aCaminhos = [];
         foreach($aVertices as $oVertice) {
-            $aCaminhos[] = $this->getCaminhoCompleto($oVertice, $aVertices) . ' ' . $oVertice->getCusto();
+            $aCaminhos[] = $this->getCaminhoCompleto($oVertice, $aVertices) . ' | Custo: ' . $oVertice->getCusto();
         }
         return $aCaminhos;
     }
@@ -45,7 +45,12 @@ class routes {
         return $sCaminho;
     }
 
-    private function getNomeCerto($sNome) {
+    /**
+     * Método converter as siglas para os nomes corretos.
+     * 
+     * @param String $sSigla - Sigla do estado.
+     */
+    private function getNomeCerto($sSigla) {
         $aNomes = [
             'PR' => 'Paraná',
             'SC' => 'Santa Catarina',
@@ -75,7 +80,7 @@ class routes {
             'AC' => 'Acre',
             'AP' => 'Amapa'
         ];
-        return $aNomes[$sNome];
+        return $aNomes[$sSigla];
     }
 
 }
