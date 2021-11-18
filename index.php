@@ -19,6 +19,5 @@ $aRotas = $oRoutes->getRotas($aRetorno);
 //Exibe o resultado na tela.
 $oView->exibeRotas($aRotas);
 
-// var_dump($aRetorno);
-// var_dump($aRetorno);
+var_dump($aRetorno);
 // var_dump($aRotas);
