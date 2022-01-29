@@ -24,11 +24,6 @@ class djikstra {
         $aVertices = $this->getArrayVertices($aGrafo);
         $aVertices[$sVerticeInicial]->setCusto(0);
 
-        // @TODO - Verificar a possibilidade de mover isso para dentro do processamento geral. 
-        //Começar passando pelos relacionamentos do inicial.
-        $this->trataVertices($aVertices, $sVerticeInicial);
-        unset($aNaoVisitados[$sVerticeInicial]);
-
         //Passar por todos os outros não visitados até que todos sejam visitados
         while(count($aNaoVisitados) > 0) {
             $sVertice = $this->getMenorCustoFromNaoVisitados($aNaoVisitados, $aVertices);
@@ -98,7 +93,7 @@ class djikstra {
         $iMenor = null;
         $sResult = null;
         foreach($aNaoVisitados as $sIndice => $sVertice) {
-            if ($aVertices[$sIndice]->getCusto() < $iMenor || empty($iMenor)) {
+            if ($aVertices[$sIndice]->getCusto() < $iMenor || is_null($iMenor)) {
                 $iMenor = $aVertices[$sIndice]->getCusto();
                 $sResult = $sIndice;
             }
